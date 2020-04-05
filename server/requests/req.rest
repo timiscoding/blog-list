@@ -1,0 +1,119 @@
+@baseUrl=http://localhost:3003
+
+GET {{baseUrl}}/api/blogs HTTP/1.1
+
+### get sorted blogs
+
+@sortLimit=5
+@sortOffset=0
+@sortBy=createdAt-desc
+GET {{baseUrl}}/api/blogs?limit={{sortLimit}}&offset={{sortOffset}}&sort={{sortBy}} HTTP/1.1
+
+### get blogs from a user
+@userId=5d367f2b2005ec2259122f69
+GET {{baseUrl}}/api/blogs?limit={{sortLimit}}&offset={{sortOffset}}&sort={{sortBy}}&userId={{userId}} HTTP/1.1
+
+### get blogs by offset and limit
+
+@blogLimit=5
+@blogOffset=0
+GET {{baseUrl}}/api/blogs?limit={{blogLimit}}&offset={{blogOffset}} HTTP/1.1
+
+### get specific blog
+
+@aBlog=5d3e8f8b46ea150ba3356ed5
+GET {{baseUrl}}/api/blogs/{{aBlog}} HTTP/1.1
+
+### update blog
+
+PUT {{baseUrl}}/api/blogs/{{aBlog}} HTTP/1.1
+Content-Type: application/json
+
+{
+  "likes": 10
+}
+
+### new blog
+
+POST {{baseUrl}}/api/blogs HTTP/1.1
+Content-Type: application/json
+authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkMzY3ZjJiMjAwNWVjMjI1OTEyMmY2OSIsInVzZXJuYW1lIjoidGltIiwibmFtZSI6InRpbSIsImlhdCI6MTU2Mzg3MjI4MX0.TJM4eFCKZX4xTkcsrsI7B6UodeGZWqmDGbSamhp7taY
+
+{
+  "title": "Holden Caulfield",
+  "author": "Salinger",
+  "url": "http://pencey.com",
+  "likes": 5
+}
+
+### delete blog
+@blogToDelete=5e097b2536d80f30a6f87a12
+DELETE {{baseUrl}}/api/blogs/{{blogToDelete}} HTTP/1.1
+authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkMzY3ZjJiMjAwNWVjMjI1OTEyMmY2OSIsInVzZXJuYW1lIjoidGltIiwibmFtZSI6InRpbSIsImlhdCI6MTU2Mzg3MjI4MX0.TJM4eFCKZX4xTkcsrsI7B6UodeGZWqmDGbSamhp7taY
+
+### delete multiple blogs
+
+DELETE {{baseUrl}}/api/blogs HTTP/1.1
+content-type: application/json
+authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkMzY3ZjJiMjAwNWVjMjI1OTEyMmY2OSIsInVzZXJuYW1lIjoidGltIiwibmFtZSI6InRpbSIsImlhdCI6MTU2Mzg3MjI4MX0.TJM4eFCKZX4xTkcsrsI7B6UodeGZWqmDGbSamhp7taY
+
+{
+  "ids": ["5e09a0a7696e064c3aa3f24a", "5e09a0b2696e064c3aa3f24b"]
+}
+
+### fetch comments
+@blogForComments=5e42288c404fa10a6b9c6fa9
+@commentOffset=0
+@commentLimit=6
+@commentSort=createdAt-desc
+GET {{baseUrl}}/api/blogs/{{blogForComments}}/comments?offset={{commentOffset}}&limit={{commentLimit}}&sort={{commentSort}} HTTP/1.1
+
+### add comment to blog
+
+@blogToComment=5e09a0b2696e064c3aa3f24b
+
+POST {{baseUrl}}/api/blogs/{{blogToComment}}/comments HTTP/1.1
+Content-Type: application/json
+
+{
+  "comment": "eggplant 2"
+}
+
+### all users
+@userOffset=0
+@userLimit=5
+@userSort=name-asc
+GET {{baseUrl}}/api/users?offset={{userOffset}}&limit={{userLimit}}&sort={{userSort}} HTTP/1.1
+
+### get specific user
+@aUser=5d367f2b2005ec2259122f69
+GET {{baseUrl}}/api/users/{{aUser}} HTTP/1.1
+
+### new user
+POST {{baseUrl}}/api/users HTTP/1.1
+content-type: application/json
+
+{
+  "username": "leelu",
+  "name": "leelu",
+  "password": "leelu"
+}
+
+### new user, insufficient password length
+POST {{baseUrl}}/api/users HTTP/1.1
+content-type: application/json
+
+{
+  "username": "elgar",
+  "name": "eddy",
+  "password": "da"
+}
+
+### login
+POST {{baseUrl}}/api/login HTTP/1.1
+content-type: application/json
+
+{
+  "username": "tim",
+  "password": "tim"
+}
