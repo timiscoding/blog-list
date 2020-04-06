@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components/macro";
 import FormBase from "../../Form";
@@ -11,8 +11,13 @@ const Form = styled(FormBase)`
   padding: 10px;
 `;
 
-const CommentForm = ({ onComment, pending }) => {
+const CommentForm = ({ onComment, pending, toggleableOpen }) => {
   const formRef = useRef();
+  useEffect(() => {
+    if (toggleableOpen) {
+      formRef.current.focus();
+    }
+  }, [toggleableOpen]);
 
   const handleSubmit = async ({ comment }) => {
     const action = await onComment(comment);
@@ -31,6 +36,7 @@ const CommentForm = ({ onComment, pending }) => {
               valid={validity.comment}
               error={errors.comment}
               placeholder="Comment on this blog"
+              autoComplete="off"
             />
           </Form.Group>
           <Row cols={1}>
@@ -51,7 +57,7 @@ const CommentForm = ({ onComment, pending }) => {
 
 CommentForm.propTypes = {
   onComment: PropTypes.func.isRequired,
-  pending: PropTypes.bool
+  pending: PropTypes.bool,
 };
 
 export default CommentForm;

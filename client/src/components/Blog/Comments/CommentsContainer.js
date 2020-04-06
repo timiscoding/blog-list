@@ -12,12 +12,12 @@ import {
   Heading,
   Actions,
   SortDropdown,
-  Toggleable
+  Toggleable,
 } from "./styled/CommentsContainer";
 
 const SORT_OPTIONS = [
   { value: "createdAt-desc", title: "By newest first" },
-  { value: "createdAt-asc", title: "By oldest First" }
+  { value: "createdAt-asc", title: "By oldest First" },
 ];
 
 const SORT_BY_NEWEST = SORT_OPTIONS[0].value;
@@ -30,7 +30,7 @@ const CommentsContainer = ({
   fetchComments,
   page,
   history,
-  location
+  location,
 }) => {
   const commentFormRef = useRef();
   useEffect(() => {
@@ -39,7 +39,7 @@ const CommentsContainer = ({
     const sort = params.get("sort") || SORT_BY_NEWEST;
     fetchComments({ blogId: match.params.id, page, sort });
   }, [fetchComments, match.params.id, location]);
-  const handleComment = comment =>
+  const handleComment = (comment) =>
     addComment(match.params.id, comment, history);
   const handleChange = (type, value) => {
     const params = new URLSearchParams(location.search);
@@ -59,7 +59,7 @@ const CommentsContainer = ({
       <Actions>
         <SortDropdown
           options={SORT_OPTIONS}
-          onChange={sort => handleChange("sort", sort)}
+          onChange={(sort) => handleChange("sort", sort)}
           defaultValue={
             new URLSearchParams(location.search).get("sort") || SORT_BY_NEWEST
           }
@@ -69,7 +69,13 @@ const CommentsContainer = ({
           buttonIcon={AddIcon}
           ref={commentFormRef}
         >
-          <CommentForm onComment={handleComment} pending={isCommenting} />
+          {(open) => (
+            <CommentForm
+              onComment={handleComment}
+              pending={isCommenting}
+              toggleableOpen={open}
+            />
+          )}
         </Toggleable>
       </Actions>
       <CommentList comments={page?.items} pending={pending} />
@@ -77,17 +83,17 @@ const CommentsContainer = ({
         currentPage={page?.currentPage}
         lastPage={page?.lastPage}
         maxNavPages={6}
-        onClick={page => handleChange("page", page)}
+        onClick={(page) => handleChange("page", page)}
         pending={pending}
       />
     </div>
   );
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   isCommenting: selectors.getPending(state, actionTypes.ADD_COMMENT_REQUEST),
   isFetching: selectors.getPending(state, actionTypes.FETCH_COMMENTS_REQUEST),
-  page: selectors.getPage(state, actionTypes.FETCH_COMMENTS_REQUEST)
+  page: selectors.getPage(state, actionTypes.FETCH_COMMENTS_REQUEST),
 });
 
 export default connect(mapStateToProps, { addComment, fetchComments })(

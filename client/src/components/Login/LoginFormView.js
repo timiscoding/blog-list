@@ -14,7 +14,7 @@ const LoginFormView = ({ onLogin, pending }) => {
   const handleSubmit = ({ username, password }) => {
     onLogin({
       username,
-      password
+      password,
     });
   };
 
@@ -71,7 +71,7 @@ const LoginFormView = ({ onLogin, pending }) => {
 
 LoginFormView.propTypes = {
   onLogin: PropTypes.func.isRequired,
-  pending: PropTypes.bool
+  pending: PropTypes.bool,
 };
 
 export default LoginFormView;

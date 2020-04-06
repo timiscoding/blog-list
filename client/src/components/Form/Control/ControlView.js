@@ -9,11 +9,14 @@ const ControlView = ({
   value,
   error,
   onChange,
+  onKeyPress,
   valid,
   id,
   type,
   noValidStyle,
-  placeholder
+  placeholder,
+  autoFocus,
+  autoComplete,
 }) => {
   return (
     <>
@@ -22,8 +25,11 @@ const ControlView = ({
           id={id}
           value={value}
           onChange={onChange}
+          onKeyPress={onKeyPress}
           valid={valid}
           placeholder={placeholder}
+          autoFocus={autoFocus}
+          autoComplete={autoComplete}
         />
       ) : (
         <Input
@@ -33,8 +39,11 @@ const ControlView = ({
           onClear={onClear}
           value={value}
           onChange={onChange}
+          onKeyPress={onKeyPress}
           valid={valid}
           placeholder={placeholder}
+          autoFocus={autoFocus}
+          autoComplete={autoComplete}
         />
       )}
       <InputError>{error}</InputError>
@@ -49,7 +58,7 @@ ControlView.propTypes = {
   value: PropTypes.string.isRequired,
   valid: PropTypes.bool,
   error: PropTypes.string,
-  id: PropTypes.string
+  id: PropTypes.string,
 };
 
 export default ControlView;
