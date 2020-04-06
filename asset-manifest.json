@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.js": "/main.1dcfb36d753924298189.bundle.js",
+    "main.js.map": "/main.1dcfb36d753924298189.bundle.js.map",
+    "runtime~main.js": "/runtime~main.1dcfb36d753924298189.bundle.js",
+    "runtime~main.js.map": "/runtime~main.1dcfb36d753924298189.bundle.js.map",
+    "vendors~main.js": "/vendors~main.1dcfb36d753924298189.bundle.js",
+    "vendors~main.js.map": "/vendors~main.1dcfb36d753924298189.bundle.js.map",
+    "iframe.html": "/iframe.html",
+    "precache-manifest.64d40ae72e801fb135afb59d29ac14de.js": "/precache-manifest.64d40ae72e801fb135afb59d29ac14de.js",
+    "service-worker.js": "/service-worker.js",
+    "static/media/Inter.var.woff2": "/static/media/Inter.var.4d584d5c.woff2",
+    "static/media/add-user-button.svg": "/static/media/add-user-button.3be98e63.svg",
+    "static/media/add.svg": "/static/media/add.e43c6e81.svg",
+    "static/media/check.92d3083d.svg": "/static/media/check.92d3083d.svg",
+    "static/media/clear.svg": "/static/media/clear.0e3fcb06.svg",
+    "static/media/down-chevron.7e1c8db0.svg": "/static/media/down-chevron.7e1c8db0.svg",
+    "static/media/filled-circle.svg": "/static/media/filled-circle.14870e4d.svg",
+    "static/media/garbage.svg": "/static/media/garbage.f5e909e2.svg",
+    "static/media/like.ae985747.svg": "/static/media/like.ae985747.svg",
+    "static/media/link.df261459.svg": "/static/media/link.df261459.svg",
+    "static/media/login.svg": "/static/media/login.655a8054.svg",
+    "static/media/loop.c964d29f.svg": "/static/media/loop.c964d29f.svg",
+    "static/media/message.svg": "/static/media/message.50350131.svg",
+    "static/media/right-chevron.52992640.svg": "/static/media/right-chevron.52992640.svg",
+    "static/media/round-error-symbol.svg": "/static/media/round-error-symbol.0e8b1f3d.svg",
+    "vendors~main.1dcfb36d753924298189.bundle.js.LICENSE.txt": "/vendors~main.1dcfb36d753924298189.bundle.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "runtime~main.1dcfb36d753924298189.bundle.js",
+    "vendors~main.1dcfb36d753924298189.bundle.js",
+    "main.1dcfb36d753924298189.bundle.js"
+  ]
+}
