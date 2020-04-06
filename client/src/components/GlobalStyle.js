@@ -47,7 +47,7 @@ export default createGlobalStyle`
 
   a {
     color: ${({ theme }) => theme.primaryLight};
-    font-weight: 550;
+    font-weight: 400;
     text-decoration: none;
     &:hover {
       text-decoration: underline;

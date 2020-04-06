@@ -5,7 +5,7 @@ const makeBrightLevels = (name, baseColor, percent = 0.1) => ({
   [name + "Lighter"]: lighten(percent * 3, baseColor),
   [name + "Light"]: lighten(percent, baseColor),
   [name + "Dark"]: darken(percent, baseColor),
-  [name + "Darker"]: darken(percent * 2, baseColor)
+  [name + "Darker"]: darken(percent * 2, baseColor),
 });
 
 const theme = {
@@ -26,7 +26,7 @@ const theme = {
     return transparentize(0.9, this.valid);
   },
   ...makeBrightLevels("fontDark", "#000"),
-  fontLight: "#fff"
+  ...makeBrightLevels("fontLight", "#fff"),
 };
 
 export default theme;

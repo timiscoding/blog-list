@@ -44,7 +44,7 @@ export const CircleIcon = styled(CircleGlyph)`
 `;
 
 export const Title = styled.div`
-  font-weight: 600;
+  font-weight: 500;
   font-size: 1.3rem;
   line-height: 1.2;
   text-transform: capitalize;
@@ -71,6 +71,7 @@ export const Metadata = styled.span`
 `;
 
 export const BlogLink = styled.a`
+  margin-top: 5px;
   ${ellipsis("100%")};
 `;
 

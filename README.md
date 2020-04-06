@@ -1,14 +1,16 @@
-# Blog List app
+# <p align="center"> Blog List app </p>
 
-**An app that lets users manage blog links, share, like and comment.**
+### <p align="center">An app that lets users manage blog links, share, like and comment.</p>
 
-**[Try it out]()**
+### <p align="center"><a href="https://blog-list-pi.now.sh/">Try it out</a></p>
 
-Test username/password: **tim / tim**
+<p align="center">Test username/password: tim / tim</p>
+
+## About
 
 Frontend: React, Redux, Styled-components, Storybook
 
-Backend: Node, Express, MongoDB, Mongoose
+Backend: Node, Express, MongoDB, Mongoose, Jest
 
 This project started out as my submission in part 7 of the
 [Full Stack course](https://fullstackopen.com/en/part7)
@@ -16,24 +18,17 @@ to learn redux and grew from there.
 
 ## Dev build
 
-Requirements (works on version):
+Server requirements (works on version):
 
 - node 11.10
 - mongodb v3.4 or mongo cloud - sign up for a
   [free account](https://www.mongodb.com/cloud)
 
-Server secrets are stored in `.env` in project root so create the env
-vars like the example below:
-
-```
-MONGODB_URI=mongodb+srv://tim:<password>@fullstackopen-9zjso.mongodb.net/blog-list?retryWrites=true&w=majority
-PORT=3003
-SECRET=jsonwebtokensuperdupersecret
-```
+Secrets are stored in `/server/.env`. See `/server/.env.example`.
 
 The client uses create-react-app and proxies all backend requests.
-In order for the client to talk to the server, the port chosen above
-needs to match the one inside `package.json` in `/client`
+In order for the client to talk to the server, the port chosen in `.env`
+needs to match the one in `/client/package.json`
 
 ```
 "proxy": "http://localhost:3003",
@@ -51,18 +46,20 @@ npm run server
 npm run storybook (for visual testing)
 ```
 
-## Notes
+## Additional
 
 Things I added on top of the project requirements:
 
-- pagination with client caching
-- sort by fields
-- multiple blog deletion
-- form validation
-- a design system...sort of (check out the storybook)
-- notifications
-- mobile responsive
-- react-spring animations
+- [x] pagination with client caching
+- [x] sort by fields
+- [x] multiple blog deletion
+- [x] form validation
+- [x] a design system...sort of (check out the storybook)
+- [x] notifications
+- [x] mobile responsive
+- [x] react-spring animations
+
+## Outcome
 
 Learnt some notable things:
 

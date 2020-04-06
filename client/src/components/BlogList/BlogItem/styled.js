@@ -27,7 +27,7 @@ export const ListItem = styled.li`
 
 export const Title = styled(filterProps(Link, ["isLink"]))`
   pointer-events: ${({ isLink }) => (isLink ? "auto" : "none")};
-  font-weight: ${({ isLink }) => (isLink ? "auto" : "normal")};
+  font-weight: ${({ isLink }) => (isLink ? "450" : "normal")};
   text-decoration: none;
   color: ${({ theme }) => theme.fontDark};
   font-size: 1.1rem;

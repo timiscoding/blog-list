@@ -2,7 +2,7 @@ import Axios from "axios";
 import { batch } from "react-redux";
 import { getActionName } from "../reducers/utils";
 
-export default ({ getState, dispatch }) => next => async action => {
+export default ({ getState, dispatch }) => (next) => async (action) => {
   if (action.HTTP_ACTION === undefined) return next(action);
 
   const {
@@ -15,7 +15,7 @@ export default ({ getState, dispatch }) => next => async action => {
     onSuccess,
     onFail,
     headers,
-    notify
+    notify,
   } = action.HTTP_ACTION;
   const actionName = getActionName(type);
   const { currentUser } = getState();
@@ -26,10 +26,11 @@ export default ({ getState, dispatch }) => next => async action => {
   next({ type, notify });
   try {
     const response = await Axios({
+      baseURL: process.env.REACT_APP_API_URL,
       method,
       headers,
       url,
-      data: payload
+      data: payload,
     });
     let retVal;
     batch(() => {
@@ -38,8 +39,8 @@ export default ({ getState, dispatch }) => next => async action => {
           type: `${actionName}_SUCCESS`,
           data,
           response: response.data,
-          schema
-        }
+          schema,
+        },
       });
       onSuccess && next(onSuccess()); // OnSuccess(data, transformResp) UNUSED?
     });
@@ -57,7 +58,7 @@ export default ({ getState, dispatch }) => next => async action => {
       error = { message: "Request was made but no response was received" };
     } else {
       error = {
-        message: `There was a problem setting up the request (${err.message})`
+        message: `There was a problem setting up the request (${err.message})`,
       };
     }
     console.error(
@@ -73,7 +74,7 @@ export default ({ getState, dispatch }) => next => async action => {
     const retVal = next({
       type: `${actionName}_FAIL`,
       error,
-      notify
+      notify,
     });
     onFail && next(onFail(error));
     return retVal;
