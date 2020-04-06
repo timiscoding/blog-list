@@ -6,6 +6,8 @@
 
 <p align="center">Test username/password: tim / tim</p>
 
+<p align="center"><a href="https://timiscoding.github.io/blog-list/">Storybook</a></p>
+
 ## About
 
 Frontend: React, Redux, Styled-components, Storybook
@@ -54,7 +56,7 @@ Things I added on top of the project requirements:
 - [x] sort by fields
 - [x] multiple blog deletion
 - [x] form validation
-- [x] a design system...sort of (check out the storybook)
+- [x] a design system...sort of (check out [the storybook](https://timiscoding.github.io/blog-list/))
 - [x] notifications
 - [x] mobile responsive
 - [x] react-spring animations
