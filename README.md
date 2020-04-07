@@ -4,6 +4,7 @@
 
 ### <p align="center"><a href="https://blog-list-pi.now.sh/">Try it out</a></p>
 
+<p align="center">(Backend is hosted on a free Heroku account so the data may take a while to fetch on first page load)</p>
 <p align="center">Test username/password: tim / tim</p>
 
 <p align="center"><a href="https://timiscoding.github.io/blog-list/">Storybook</a></p>
