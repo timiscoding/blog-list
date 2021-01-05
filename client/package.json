@@ -6,7 +6,7 @@
   "dependencies": {
     "@juggle/resize-observer": "2.3.0",
     "@quickbaseoss/babel-plugin-styled-components-css-namespace": "1.0.0-rc4",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "body-scroll-lock": "2.7.0",
     "immer": "4.0.0",
     "lodash": "4.17.15",
